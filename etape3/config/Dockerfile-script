@@ -1,0 +1,7 @@
+FROM php:fpm
+
+# Installer les extensions PHP nécessaires pour WordPress, y compris MySQLi
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+WORKDIR /var/www/html
+COPY ./src/wordpress /var/www/html
